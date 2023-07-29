@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #111111;
+  }
+  .nav-container{
+    margin-top: 2vh;
+    margin-bottom: 10vh;
+    margin-inline: 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-menu{
+    margin-top: 2px;
+    color: #f3f3f3;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    align-items: center;
+}
+
+.active-menu,.nav-menu-items:hover{
+    background-color: rgb(66, 115, 199);
+    border-radius: 25px;
+    padding: 7px 15px;
+}
+
+  .tabs {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .tab-btn {
+    display: flex;
+    justify-content: space-around;
+    height: 15%;
+    margin-bottom: 10px;
+    width: 100%;
+    cursor: pointer;
+  }
+  .tab-btn>button{
+    background-color:#111111;
+    outline:none;
+    border:none;
+    width:100%;
+    margin:5px;
+  }
+  .tab-btn.active {
+    background-color: #ddd;
+  }
+  
+  .grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .grid-card {
+    width:100%;
+    height: fit-content;
+    margin: 5px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #1b1b1b;
+  }
+  .card-img{
+    width: 50px;
+    margin-right: 10px;
+}
+.card-price{
+    padding: 1rem;
+    color: lightgreen;
+    margin-bottom: 10px;
+}
+.price_change{
+    padding: 5px 15px;
+    border : 2px solid lightgreen;
+    border-radius: 25px;
+    width: fit-content;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}s
+  .list-view {
+    width: 100%;
+  }
+  
+  .list-view th,
+  .list-view td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  @media only screen and (max-width:850px) {
+    body > header > nav > .nav-container{
+        flex-direction: column !important;
+        justify-content: start;
+        align-items: start;
+    }
+
+    .nav-container > .nav-menu{
+        margin: 0;
+        width: 100%;
+        justify-content: space-between;
+        align-items: start;
+        margin-top: 10px;
+    }
+    .nav-container > .nav-menu > .nav-menu-items{
+        margin: 0;
+    }
+}

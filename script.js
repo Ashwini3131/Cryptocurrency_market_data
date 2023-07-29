@@ -11,7 +11,8 @@ async function fetchData() {
     console.error('Error fetching data:', error);
   }
 }
-
+const grid_btn = document.getElementById("grid");
+const list_btn = document.getElementById("list");
 // Populate the grid view with cryptocurrency data
 function populateGridView(data) {
   const cryptoDataContainer = document.getElementById('cryptoDataContainer');
@@ -38,20 +39,22 @@ function createGridCard(crypto) {
   name.textContent = crypto.name;
   name.className='card-name';
   card.appendChild(name);
+  
+  const priceChange = document.createElement('p');
+  priceChange.className='price_change';
+  priceChange.textContent = `${crypto.price_change_percentage_24h.toFixed(2)}%`;
+  card.appendChild(priceChange);
 
   const price = document.createElement('p');
   price.className='card-price';
-  price.textContent = `Price: $${crypto.current_price}`;
+  price.textContent = `$${crypto.current_price}`;
   card.appendChild(price);
 
   const marketCap = document.createElement('p');
   marketCap.textContent = `Market Cap: $${crypto.market_cap}`;
   card.appendChild(marketCap);
 
-  const priceChange = document.createElement('p');
-  priceChange.className='price_change';
-  priceChange.textContent = `24h Change: ${crypto.price_change_percentage_24h.toFixed(2)}%`;
-  card.appendChild(priceChange);
+  
 
   return card;
 }
@@ -88,6 +91,10 @@ function showGridView() {
   document.getElementById('cryptoDataTable').classList.remove('list-view');
   document.querySelector('.tab-btn.active').classList.remove('active');
   event.target.classList.add('active');
+  list_btn.style.borderBottom = "none";
+  grid_btn.style.borderBottom = "2px solid rgb(60, 120, 205)";
+   
+  
 }
 
 // Show the list view and highlight the active tab
@@ -96,6 +103,10 @@ function showListView() {
   document.getElementById('cryptoDataTable').classList.add('list-view');
   document.querySelector('.tab-btn.active').classList.remove('active');
   event.target.classList.add('active');
+  grid_btn.style.borderBottom = "none";
+        list_btn.style.borderBottom = "2px solid rgb(60, 120, 205)";
+          
+        
 }
 
 // Fetch data and populate the grid view on page load
